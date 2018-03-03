@@ -1,0 +1,7 @@
+private Class<?> createAdaptiveExtensionClass(){
+    String code=createAdaptiveExtensionClassCode();
+    com.alibaba.dubbo.common.compiler.Compiler compiler=ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.compiler.Compiler.class).getAdaptiveExtension();
+    return compiler.compile(code,classLoader);
+}
+1. 生成Adaptive代码code
+2. 利用dubbo的spi扩展机制获取compiler设配类
